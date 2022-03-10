@@ -1,19 +1,29 @@
+import Box from '@mui/material/Box';
 import React from 'react';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import Layout from '../../components/Layout/Layout';
 
 const AnimeDetail = () => (
-  <div>
+  <Layout>
     <img
       style={{
-        // position: 'fixed',
         zIndex: -1,
         height: 300,
+        width: '100%',
+        borderRadius: 5,
       }}
       src="https://s4.anilist.co/file/anilistcdn/media/anime/banner/131681-1UVaTTG5PaZs.jpg"
       alt="bacg"
     />
 
     <div>
-      <div style={{ display: 'flex', columnGap: 30 }}>
+      <Box sx={{
+        display: 'flex',
+        columnGap: 5,
+        padding: '0 50px',
+        mt: 2,
+      }}
+      >
         <div style={{
           transform: 'translate(0px, -100px)',
         }}
@@ -28,7 +38,24 @@ const AnimeDetail = () => (
             alt="1"
           />
           <br />
-          <button type="button">Add to Favorite</button>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              background: 'darkBlue',
+              color: 'white',
+              outline: 0,
+              border: 0,
+              borderRadius: 1,
+              padding: '5px 12px;',
+              margin: 'auto',
+              mt: 2,
+            }}
+            component="button"
+          >
+            Add to Favorite
+            <FavoriteIcon sx={{ ml: 1 }} />
+          </Box>
         </div>
         <div>
           <h1 style={{ marginBottom: 30 }}>Shingeki no Kyojin: The Final Season Part 2</h1>
@@ -40,7 +67,7 @@ const AnimeDetail = () => (
             half-brother’s wishes or does he have a plan of his own?
           </p>
         </div>
-      </div>
+      </Box>
       <div>
         <h1 style={{ marginTop: 30, marginBottom: 20 }}>Characters</h1>
         <div>
@@ -48,7 +75,7 @@ const AnimeDetail = () => (
         </div>
       </div>
     </div>
-  </div>
+  </Layout>
 );
 
 export default AnimeDetail;

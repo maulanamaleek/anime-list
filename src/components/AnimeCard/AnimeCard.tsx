@@ -15,14 +15,24 @@ const Card = styled.div`
 
   p {
     font-size: 14px;
+    color: black;
   }
 `;
 
-const AnimeCard = () => (
+interface Props {
+  imageUrl: string;
+  title: string;
+  genres: Array<string>;
+}
+
+const AnimeCard = ({ imageUrl, title, genres }: Props) => (
   <Card>
-    <img src="https://s4.anilist.co/file/anilistcdn/media/anime/banner/26-FWJgAONj7etr.jpg" alt="anime title" />
-    <p>Anime Title</p>
-    <p>Genre: Action...</p>
+    <img src={imageUrl} alt={title} />
+    <p>{title}</p>
+    <p>
+      Genre:
+      {genres.map((genre) => <span key={genre}>{genre}</span>)}
+    </p>
   </Card>
 );
 

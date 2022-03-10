@@ -1,11 +1,12 @@
 import React from 'react';
+import Layout from '../../components/Layout/Layout';
 import SearchForm from '../../components/SearchForm/SearchForm';
 
 const Discover = () => (
-  <div>
+  <Layout>
     <SearchForm />
     Discover All Anime
-  </div>
+  </Layout>
 );
 
 export default Discover;
