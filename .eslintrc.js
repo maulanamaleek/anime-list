@@ -23,6 +23,9 @@ module.exports = {
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/extensions': 'off',
     'import/prefer-default-export': 'off',
+    'no-shadow': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    '@typescript-eslint/no-shadow': ['off'],
     'react/function-component-definition': [
       2,
       {

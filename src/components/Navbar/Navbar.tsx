@@ -11,6 +11,7 @@ const Navbar = () => (
     alignItems: 'center',
     background: 'darkBlue',
     color: 'white',
+    zIndex: 3,
   }}
   >
     <Box sx={{ padding: '12px 10%', display: 'flex', justifyContent: 'space-between' }}>
@@ -22,8 +23,8 @@ const Navbar = () => (
         color: 'white',
       }}
       >
-        <Link to="/">Anime List</Link>
-        <Link to="/discover/all">Discover</Link>
+        <Link to="/">Anime</Link>
+        <Link to="/discover/manga">Manga</Link>
         <Link to="/favorites">Favorites</Link>
       </Box>
     </Box>

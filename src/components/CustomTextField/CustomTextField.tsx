@@ -4,7 +4,12 @@ import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
 import { Typography } from '@mui/material';
 
-const CustomTextField = () => (
+interface TextFieldProps {
+  value: string;
+  onChange: Function;
+}
+
+const CustomTextField: React.FC<TextFieldProps> = ({ value, onChange }) => (
   <Box sx={{ display: 'flex', flexDirection: 'column' }}>
     <Typography>Search</Typography>
     <Box sx={{
@@ -17,6 +22,8 @@ const CustomTextField = () => (
     >
       <SearchIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
       <TextField
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         InputProps={{ disableUnderline: true }}
         id="input-with-sx"
         variant="standard"

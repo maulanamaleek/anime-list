@@ -1,14 +1,18 @@
 import Box from '@mui/material/Box';
 import React from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
+import Tag from '../Tag/Tag';
 
-interface Props {
+interface FavoritesProps {
   imageUrl: string;
   title: string;
   genres: Array<string>;
+  deleteItem: Function;
 }
 
-const FavoritesItem = ({ imageUrl, title, genres }: Props) => (
+const FavoritesItem: React.FC<FavoritesProps> = ({
+  imageUrl, title, genres, deleteItem,
+}) => (
   <Box sx={{
     display: 'flex',
     justifyContent: 'space-between',
@@ -18,13 +22,14 @@ const FavoritesItem = ({ imageUrl, title, genres }: Props) => (
   >
     <img width={100} style={{ objectFit: 'cover' }} height={100} src={imageUrl} alt={title} />
     <Box>
-      <h4>Anime Title</h4>
+      <h4>{title}</h4>
       <p>
-        Genre:
-        {genres.map((genre) => <span key={genre}>{genre}</span>)}
+        {genres.map((genre) => <Tag key={genre} content={genre} />)}
       </p>
     </Box>
-    <DeleteIcon color="warning" />
+    <Box component="button" onClick={() => deleteItem()}>
+      <DeleteIcon color="warning" />
+    </Box>
 
   </Box>
 );
