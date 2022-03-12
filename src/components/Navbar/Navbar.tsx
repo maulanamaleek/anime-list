@@ -11,6 +11,7 @@ const Navbar = () => (
     alignItems: 'center',
     background: 'darkBlue',
     color: 'white',
+    zIndex: 3,
   }}
   >
     <Box sx={{ padding: '12px 10%', display: 'flex', justifyContent: 'space-between' }}>

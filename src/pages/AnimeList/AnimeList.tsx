@@ -1,90 +1,48 @@
+/* eslint-disable no-unused-vars */
 import Box from '@mui/material/Box';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useQuery, useReactiveVar } from '@apollo/react-hooks';
+import Skeleton from '@mui/material/Skeleton';
+import Stack from '@mui/material/Stack';
 import AnimeCard from '../../components/AnimeCard/AnimeCard';
 import Layout from '../../components/Layout/Layout';
 import SearchForm from '../../components/SearchForm/SearchForm';
+import { filtersVar, HOME_SCREEN_ANIME } from '../../utils/gql-helpers';
+import { isFilterEmpty } from '../../utils/filter-helpers';
+import FilteredList from '../../components/FilteredList/FilteredList';
+import AnimeInCategory from './AnimeInCategory';
 
 const AnimeList = () => {
-  const url = 'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx131681-ODIRpBIbR5Eu.jpg';
-  const animeList = [
-    {
-      id: 1, title: 'Attack on Titan', imageUrl: url, genres: ['action', 'mystery'],
-    },
-    {
-      id: 2, title: 'Attack on Titan', imageUrl: url, genres: ['action', 'mystery'],
-    },
-    {
-      id: 3, title: 'Attack on Titan', imageUrl: url, genres: ['action', 'mystery'],
-    },
-    {
-      id: 4, title: 'Attack on Titan', imageUrl: url, genres: ['action', 'mystery'],
-    },
-    {
-      id: 5, title: 'Attack on Titan', imageUrl: url, genres: ['action', 'mystery'],
-    },
-  ];
+  const { data } = useQuery(HOME_SCREEN_ANIME);
+  const filters = useReactiveVar(filtersVar);
+  const [trending, setTrending] = useState<any>([]);
+  const [seasonPopular, setSeasonPopular] = useState<any>([]);
+  const [popular, setPopular] = useState<any>([]);
+  const [topList, setTopList] = useState<any>([]);
+  const [upcoming, setUpcoming] = useState<any>([]);
+
+  useEffect(() => {
+    setTrending(data?.trending?.media);
+    setSeasonPopular(data?.season?.media);
+    setUpcoming(data?.nextSeason.media);
+    setPopular(data?.popular?.media);
+    setTopList(data?.top?.media);
+    console.log(data);
+  }, [data]);
 
   return (
     <Layout>
       <SearchForm />
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        mt: '30px',
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Trending Now</h3>
-
-        <Link style={{ color: 'darkblue' }} to="/discover/123">View All</Link>
-      </Box>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {animeList.map((anime) => (
-          <Link to={`/detail/${anime.id}/${anime.title}`}>
-            <AnimeCard title={anime.title} imageUrl={anime.imageUrl} genres={anime.genres} />
-          </Link>
-        ))}
-      </div>
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Upcoming Next Season</h3>
-
-        <a href="/">View All</a>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {animeList.map((anime) => (
-          <Link to={`/detail/${anime.id}/${anime.title}`}>
-            <AnimeCard title={anime.title} imageUrl={anime.imageUrl} genres={anime.genres} />
-          </Link>
-        ))}
-      </div>
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>All Time Popular</h3>
-
-        <a href="/">View All</a>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {animeList.map((anime) => (
-          <Link to={`/detail/${anime.id}/${anime.title}`}>
-            <AnimeCard title={anime.title} imageUrl={anime.imageUrl} genres={anime.genres} />
-          </Link>
-        ))}
-      </div>
+      {!isFilterEmpty(filters) ? <FilteredList {...filters} /> : (
+        <AnimeInCategory
+          trending={trending}
+          seasonPopular={seasonPopular}
+          popular={popular}
+          topList={topList}
+          upcoming={upcoming}
+        />
+      )}
     </Layout>
   );
 };

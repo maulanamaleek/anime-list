@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+import { Box } from '@mui/material';
 import React from 'react';
+import Tag from '../Tag/Tag';
 
 const Card = styled.div`
   display: block;
@@ -29,10 +31,17 @@ const AnimeCard = ({ imageUrl, title, genres }: Props) => (
   <Card>
     <img src={imageUrl} alt={title} />
     <p>{title}</p>
-    <p>
-      Genre:
-      {genres.map((genre) => <span key={genre}>{genre}</span>)}
-    </p>
+    <Box
+      sx={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        columnGap: '5px',
+        rowGap: '5px',
+        mt: 1,
+      }}
+    >
+      {genres.map((genre) => <Tag key={genre} content={genre} />)}
+    </Box>
   </Card>
 );
 

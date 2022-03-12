@@ -23,7 +23,12 @@ const Favorites = () => {
 
       <Box sx={{ mt: 10 }}>
         {favoritesItem.map((item) => (
-          <FavoritesItem imageUrl={item.imageUrl} genres={item.genres} title={item.title} />
+          <FavoritesItem
+            key={item.id}
+            imageUrl={item.imageUrl}
+            genres={item.genres}
+            title={item.title}
+          />
         ))}
       </Box>
 
