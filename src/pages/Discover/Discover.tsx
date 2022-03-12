@@ -17,13 +17,10 @@ const Discover = () => {
     <Layout>
       <SearchForm />
       <h1 style={{ marginTop: 10, marginBottom: 20 }}>Discover All Anime</h1>
-      {/* <InfiniteScroll> */}
 
       <FilteredList
-        // eslint-disable-next-line react/jsx-props-no-spreading
         {...filters}
       />
-      {/* </InfiniteScroll> */}
     </Layout>
   );
 };

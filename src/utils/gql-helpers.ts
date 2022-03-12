@@ -230,22 +230,22 @@ query media($id: Int, $type: MediaType, $isAdult: Boolean) {
 
 export const HOME_SCREEN_ANIME = gql`
 query ($season: MediaSeason, $seasonYear: Int, $nextSeason: MediaSeason, $nextYear: Int) {
-  trending: Page(page: 1, perPage: 6) {
+  trending: Page(page: 1, perPage: 5) {
     media(sort: TRENDING_DESC, type: ANIME, isAdult: false) {
       ...media
     }
   }
-  season: Page(page: 1, perPage: 6) {
+  season: Page(page: 1, perPage: 5) {
     media(season: $season, seasonYear: $seasonYear, sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
       ...media
     }
   }
-  nextSeason: Page(page: 1, perPage: 6) {
+  nextSeason: Page(page: 1, perPage: 5) {
     media(season: $nextSeason, seasonYear: $nextYear, sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
       ...media
     }
   }
-  popular: Page(page: 1, perPage: 6) {
+  popular: Page(page: 1, perPage: 5) {
     media(sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
       ...media
     }

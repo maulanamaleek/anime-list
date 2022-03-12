@@ -54,7 +54,7 @@ const SearchForm = () => {
         inputProps={{ 'aria-label': 'Without label' }}
       >
         {contentType.map((item) => (
-          <MenuItem value={item.label}>
+          <MenuItem value={item.label} key={item.label}>
             {item.label}
           </MenuItem>
         ))}
