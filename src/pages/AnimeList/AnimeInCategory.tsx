@@ -32,7 +32,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
     }}
     >
       {trending?.map((anime: any) => (
-        <Link key={anime.id} to={`/detail/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
+        <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
           <AnimeCard
             title={anime.title.userPreferred}
             imageUrl={anime.coverImage.large}
@@ -59,7 +59,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
     }}
     >
       {seasonPopular?.map((anime: any) => (
-        <Link key={anime.id} to={`/detail/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
+        <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
           <AnimeCard
             title={anime.title.userPreferred}
             imageUrl={anime.coverImage.large}
@@ -81,7 +81,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
     }}
     >
       {upcoming?.map((anime: any) => (
-        <Link key={anime.id} to={`/detail/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
+        <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
           <AnimeCard
             title={anime.title.userPreferred}
             imageUrl={anime.coverImage.large}
@@ -103,7 +103,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
     }}
     >
       {popular?.map((anime: any) => (
-        <Link key={anime.id} to={`/detail/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
+        <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
           <AnimeCard
             title={anime.title.userPreferred}
             imageUrl={anime.coverImage.large}
@@ -125,7 +125,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
     }}
     >
       {topList?.map((anime: any) => (
-        <Link key={anime.id} to={`/detail/${anime.id}/${anime.title.userPreferred}`}>
+        <Link key={anime.id} to={`/anime/${anime.id}/${anime.title.userPreferred}`}>
           <AnimeCard
             title={anime.title.userPreferred}
             imageUrl={anime.coverImage.large}

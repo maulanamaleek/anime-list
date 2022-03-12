@@ -8,8 +8,12 @@ import { useParams } from 'react-router-dom';
 import Layout from '../../components/Layout/Layout';
 import { ANIME_DETAIL } from '../../utils/gql-helpers';
 import Tag from '../../components/Tag/Tag';
+import {
+  getLocalFavorites, isFavorite, removeFavorite, setLocalFavorites,
+} from '../../utils/local-storage';
 
 const AnimeDetail = () => {
+  const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const { id } = useParams();
   const { data } = useQuery(ANIME_DETAIL, {
     variables: {
@@ -20,9 +24,27 @@ const AnimeDetail = () => {
   const [detail, setDetail] = useState<any>({});
 
   useEffect(() => {
-    console.log(data);
+    window.scrollTo({ top: 0 });
+  }, []);
+
+  useEffect(() => {
     setDetail(data?.Media);
+    setIsFavoriteItem(isFavorite(detail?.id));
   }, [data]);
+
+  const addToFavorite = () => {
+    const favorites = getLocalFavorites();
+    const newFavorite = [{ ...data?.Media }];
+    if (favorites) newFavorite.push(...favorites);
+
+    setLocalFavorites(newFavorite);
+    setIsFavoriteItem(true);
+  };
+
+  const removeFavoriteItem = () => {
+    setIsFavoriteItem(false);
+    removeFavorite(detail?.id);
+  };
 
   return (
     <Layout>
@@ -59,24 +81,47 @@ const AnimeDetail = () => {
               alt="1"
             />
             <br />
-            <Box
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                background: 'darkBlue',
-                color: 'white',
-                outline: 0,
-                border: 0,
-                borderRadius: 1,
-                padding: '5px 12px;',
-                margin: 'auto',
-                mt: 2,
-              }}
-              component="button"
-            >
-              Add to Favorite
-              <FavoriteIcon sx={{ ml: 1 }} />
-            </Box>
+            {isFavorite(detail?.id) ? (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  background: 'darkBlue',
+                  color: 'white',
+                  outline: 0,
+                  border: 0,
+                  borderRadius: 1,
+                  padding: '5px 12px;',
+                  margin: 'auto',
+                  mt: 2,
+                }}
+                component="button"
+                onClick={() => removeFavoriteItem()}
+              >
+                Remove Favorite
+                <FavoriteIcon sx={{ ml: 1 }} />
+              </Box>
+            ) : (
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  background: 'darkBlue',
+                  color: 'white',
+                  outline: 0,
+                  border: 0,
+                  borderRadius: 1,
+                  padding: '5px 12px;',
+                  margin: 'auto',
+                  mt: 2,
+                }}
+                component="button"
+                onClick={addToFavorite}
+              >
+                Add to Favorite
+                <FavoriteIcon sx={{ ml: 1 }} />
+              </Box>
+            )}
 
             <Box
               sx={{
@@ -105,7 +150,7 @@ const AnimeDetail = () => {
             }}
           >
             {detail?.characterPreview?.edges?.map((char: any) => (
-              <Box>
+              <Box key={char.id}>
                 <img
                   style={{
                     display: 'block',
