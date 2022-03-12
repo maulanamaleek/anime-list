@@ -1,11 +1,5 @@
-/* eslint-disable no-unused-vars */
-import Box from '@mui/material/Box';
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery, useReactiveVar } from '@apollo/react-hooks';
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
-import AnimeCard from '../../components/AnimeCard/AnimeCard';
 import Layout from '../../components/Layout/Layout';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import { filtersVar, HOME_SCREEN_ANIME } from '../../utils/gql-helpers';
@@ -28,7 +22,6 @@ const AnimeList = () => {
     setUpcoming(data?.nextSeason.media);
     setPopular(data?.popular?.media);
     setTopList(data?.top?.media);
-    console.log(data);
   }, [data]);
 
   return (

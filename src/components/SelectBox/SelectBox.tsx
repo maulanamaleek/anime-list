@@ -24,6 +24,7 @@ const SelectBox: React.FC<Props> = ({
     <Autocomplete
       disablePortal
       value={value}
+      getOptionLabel={(option) => option.label || ''}
       onChange={(e, value) => onChange({ label: value?.label, value: value?.value })}
       id="combo-box-demo"
       options={option || []}

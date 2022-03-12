@@ -3,19 +3,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AnimeCard from '../../components/AnimeCard/AnimeCard';
 import useSkeleton from '../../components/Skeletons/useSkeleton';
-import { Anime } from '../../models/anime';
 import { formatTitleSlug } from '../../utils/string-helpers';
 
-interface AnimeInCategoryProps {
+interface MangaInCategoryProps {
   trending: any;
   topList: any;
   popular: any;
-  upcoming: any;
+  manhwa: any;
   seasonPopular: any;
 }
 
-const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
-  trending, topList, popular, upcoming, seasonPopular,
+const MangaInCategory: React.FC<MangaInCategoryProps> = ({
+  trending, topList, popular, manhwa, seasonPopular,
 }) => {
   const { loadSkeletonCard } = useSkeleton();
   return (
@@ -58,7 +57,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
       }}
       >
-        {seasonPopular ? seasonPopular?.map((anime: Anime) => (
+        {seasonPopular ? seasonPopular?.map((anime: any) => (
           <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
             <AnimeCard
               title={anime.title.userPreferred}
@@ -74,7 +73,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
       }}
       >
-        <h3 style={{ marginBottom: 15 }}>Upcoming Next Season</h3>
+        <h3 style={{ marginBottom: 15 }}>Popular Manhwa</h3>
 
         <Link style={{ color: 'darkblue' }} to="/discover/123">View All</Link>
       </div>
@@ -82,7 +81,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
       }}
       >
-        {upcoming ? upcoming?.map((anime: Anime) => (
+        {manhwa ? manhwa?.map((anime: any) => (
           <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
             <AnimeCard
               title={anime.title.userPreferred}
@@ -106,7 +105,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
       }}
       >
-        {popular ? popular?.map((anime: Anime) => (
+        {popular ? popular?.map((anime: any) => (
           <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
             <AnimeCard
               title={anime.title.userPreferred}
@@ -121,7 +120,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
       }}
       >
-        <h3 style={{ marginBottom: 15 }}>Top 100 Anime</h3>
+        <h3 style={{ marginBottom: 15 }}>Top 100 Manga</h3>
 
         <Link style={{ color: 'darkblue' }} to="/discover/anime/top-100">View All</Link>
       </div>
@@ -129,7 +128,7 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
         display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
       }}
       >
-        {topList ? topList?.map((anime: Anime, index: number) => (
+        {topList ? topList?.map((anime: any, index: number) => (
           <Link key={anime.id} to={`/anime/${anime.id}/${anime.title.userPreferred}`}>
             <AnimeCard
               title={anime.title.userPreferred}
@@ -147,4 +146,4 @@ const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
   );
 };
 
-export default AnimeInCategory;
+export default MangaInCategory;

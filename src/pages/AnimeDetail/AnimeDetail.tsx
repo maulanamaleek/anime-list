@@ -14,6 +14,7 @@ import {
 } from '../../utils/local-storage';
 import ArticleSkeleton from '../../components/Skeletons/ArticleSkeleton';
 import useSkeleton from '../../components/Skeletons/useSkeleton';
+import { Anime } from '../../models/anime';
 
 const AnimeDetail = () => {
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
@@ -25,7 +26,7 @@ const AnimeDetail = () => {
       isAdult: false,
     },
   });
-  const [detail, setDetail] = useState<any>({});
+  const [detail, setDetail] = useState<Anime>({} as Anime);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -33,7 +34,7 @@ const AnimeDetail = () => {
 
   useEffect(() => {
     setDetail(data?.Media);
-    setIsFavoriteItem(isFavorite(detail?.id));
+    setIsFavoriteItem(isFavorite(detail?.id!));
   }, [data]);
 
   const addToFavorite = () => {
@@ -47,7 +48,7 @@ const AnimeDetail = () => {
 
   const removeFavoriteItem = () => {
     setIsFavoriteItem(false);
-    removeFavorite(detail?.id);
+    removeFavorite(detail?.id!);
   };
 
   return (
@@ -59,6 +60,7 @@ const AnimeDetail = () => {
             height: 300,
             width: '100%',
             borderRadius: 5,
+            objectFit: 'cover',
           }}
           src={detail?.bannerImage}
           alt={detail?.title?.userPreferred}
@@ -94,7 +96,7 @@ const AnimeDetail = () => {
                 alt={detail?.title?.userPreferred}
               />
               <br />
-              {isFavorite(detail?.id) ? (
+              {isFavorite(detail?.id!) ? (
                 <Box
                   sx={{
                     display: 'flex',
@@ -154,6 +156,13 @@ const AnimeDetail = () => {
             </div>
           </Box>
         ) : <ArticleSkeleton />}
+
+        <div>
+          <h1>Trailer</h1>
+          {detail?.trailer?.site === 'youtube' ? (
+            <iframe title={detail?.title?.userPreferred} src={`https://www.youtube.com/embed/${detail?.trailer?.id}`} />
+          ) : null}
+        </div>
         <div>
           <h1 style={{ marginTop: 30, marginBottom: 20 }}>Characters</h1>
           {detail ? (

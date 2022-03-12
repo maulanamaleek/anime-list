@@ -20,8 +20,19 @@ const generateYear = () => {
 export const yearOption = generateYear();
 
 export const contentType = [
-  { label: 'All' },
-  { label: 'Anime' },
-  { label: 'Manga' },
-  { label: 'Character' },
+  { label: 'ALL' },
+  { label: 'ANIME' },
+  { label: 'MANGA' },
+  { label: 'CHARACTER' },
+];
+
+export const topCategory = [
+  'TRENDING', 'TOP 100', 'SEASON', 'UPCOMING', 'POPULAR',
+];
+
+export const seasonOption = [
+  { label: 'WINTER', quarter: 1 },
+  { label: 'SPRING', quarter: 2 },
+  { label: 'SUMMER', quarter: 3 },
+  { label: 'FALL', quarter: 4 },
 ];

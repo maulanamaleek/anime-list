@@ -11,6 +11,8 @@ export const filtersVar = makeVar<Filter>({
   genre: '',
   country: '',
   page: 1,
+  sort: '',
+  type: 'ANIME',
 });
 
 export const GET_GENRES = gql`

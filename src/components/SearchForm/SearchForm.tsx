@@ -21,18 +21,16 @@ interface Genre {
 const SearchForm = () => {
   const { data } = useQuery(GET_GENRES);
   const filter = useReactiveVar(filtersVar);
-  // const filters = filtersVar);
   const [genres, setGenres] = useState<Array<Genre>>([]);
   const [search, setSearch] = useState<string>('');
   const [year, setYear] = useState<{ label: string, value: string }>({ label: '', value: '' });
   const [selectedGenres, setSelectedGenres] = useState<{ label: string, value: string }>({ label: '', value: '' });
   const [country, setCountry] = useState<{ label: string, value: string }>({ label: '', value: '' });
-  const [type, setType] = useState<any>('All');
+  const [type, setType] = useState<any>('ANIME');
 
   useEffect(() => {
-    console.log(search, year, selectedGenres, country);
     filtersVar({
-      search, year: year.label, genre: selectedGenres.value, country: country.value,
+      search, year: year.label, genre: selectedGenres.value, country: country.value, type,
     });
   }, [search, country, selectedGenres, year]);
 
@@ -45,21 +43,6 @@ const SearchForm = () => {
 
   return (
     <>
-      <span>Discover</span>
-      <Select
-        value={type}
-        onChange={(e) => setType(e.target.value)}
-        displayEmpty
-        sx={{ ml: 3 }}
-        inputProps={{ 'aria-label': 'Without label' }}
-      >
-        {contentType.map((item) => (
-          <MenuItem value={item.label} key={item.label}>
-            {item.label}
-          </MenuItem>
-        ))}
-
-      </Select>
       <div style={{ display: 'grid', columnGap: 15, gridTemplateColumns: 'repeat(4, 1fr)' }}>
         <CustomTextField onChange={setSearch} value={search} />
         <SelectBox onChange={setSelectedGenres} value={selectedGenres} option={genres} label="Genres" />

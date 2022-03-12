@@ -1,0 +1,401 @@
+{
+  "id": 132405,
+  "title": {
+    "userPreferred": "Sono Bisque Doll wa Koi wo Suru"
+  },
+  "coverImage": {
+    "extraLarge": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx132405-Iy6Lze5SOme8.jpg",
+    "large": "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx132405-Iy6Lze5SOme8.jpg"
+  },
+  "bannerImage": "https://s4.anilist.co/file/anilistcdn/media/anime/banner/132405-LnPQaqaksEpN.jpg",
+  "startDate": {
+    "year": 2022,
+    "month": 1,
+    "day": 9
+  },
+  "endDate": {
+    "year": 2022,
+    "month": 3,
+    "day": 27
+  },
+  "description": "High schooler Wakana Gojou cares about one thing: making Hina dolls. With nobody to share his obsession, he has trouble finding friends—or even holding conversation. But after the school’s most popular girl, Marin Kitagawa, reveals a secret of her own, he discovers a new purpose for his sewing skills. Together, they’ll make her cosplay dreams come true! <br>\n<br>\n(Source: Funimation)",
+  "season": "WINTER",
+  "seasonYear": 2022,
+  "type": "ANIME",
+  "format": "TV",
+  "status": "RELEASING",
+  "episodes": 12,
+  "duration": 24,
+  "genres": [
+    "Comedy",
+    "Ecchi",
+    "Romance",
+    "Slice of Life"
+  ],
+  "synonyms": [
+    "Sono Kisekae Ningyou wa Koi wo suru",
+    "หนุ่มเย็บผ้ากับสาวนักคอสเพลย์",
+    "その着せ替え人形（ビスク・ドール）は恋をする",
+    "kisekoi",
+    "Si Boneka Rias Sedang Jatuh Cinta",
+    "Projekt: cosplay"
+  ],
+  "source": "MANGA",
+  "isAdult": false,
+  "averageScore": 81,
+  "popularity": 103095,
+  "favourites": 3647,
+  "hashtag": "#着せ恋 #kisekoi",
+  "countryOfOrigin": "JP",
+  "isLicensed": true,
+  "characterPreview": {
+    "edges": [
+      {
+        "id": 293987,
+        "role": "MAIN",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 136365,
+            "name": {
+              "userPreferred": "Hina Suguta",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n136365-jUqYw7lmdQOh.jpg",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 133676,
+          "name": {
+            "userPreferred": "Marin Kitagawa",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b133676-kV2czE3C8Qls.png",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      },
+      {
+        "id": 293986,
+        "role": "MAIN",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 121940,
+            "name": {
+              "userPreferred": "Shouya Ishige",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n121940-VsqIg2qO2RXF.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          },
+          {
+            "id": 122320,
+            "name": {
+              "userPreferred": "Tomoyo Takayanagi",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n122320-tV8CERbhYcNV.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 133678,
+          "name": {
+            "userPreferred": "Wakana Gojou",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b133678-IitCgjDxQGgu.png",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      },
+      {
+        "id": 343934,
+        "role": "SUPPORTING",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 100491,
+            "name": {
+              "userPreferred": "Atsushi Ono",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n100491-6xlkDMFJdADo.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 133675,
+          "name": {
+            "userPreferred": "Kaoru Gojou",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b133675-x2ISBsL4jNuT.png",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      },
+      {
+        "id": 341049,
+        "role": "SUPPORTING",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 112215,
+            "name": {
+              "userPreferred": "Atsumi Tanezaki",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n112215-5xw2weMiHUCV.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 133677,
+          "name": {
+            "userPreferred": "Sajuna Inui",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b133677-PqshvUeVFB7u.jpg",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      },
+      {
+        "id": 341048,
+        "role": "SUPPORTING",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 205892,
+            "name": {
+              "userPreferred": "Hina Youmiya",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n205892-gaMHjeUijh84.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 207937,
+          "name": {
+            "userPreferred": "Shinju Inui",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b207937-ytYjcNtNX77K.png",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      },
+      {
+        "id": 348177,
+        "role": "SUPPORTING",
+        "name": null,
+        "voiceActors": [
+          {
+            "id": 153576,
+            "name": {
+              "userPreferred": "Mai Kanno",
+              "__typename": "StaffName"
+            },
+            "language": "Japanese",
+            "image": {
+              "large": "https://s4.anilist.co/file/anilistcdn/staff/large/n153576-YENM7J8rgjY1.png",
+              "__typename": "StaffImage"
+            },
+            "__typename": "Staff"
+          }
+        ],
+        "node": {
+          "id": 260976,
+          "name": {
+            "userPreferred": "Nobara",
+            "__typename": "CharacterName"
+          },
+          "image": {
+            "large": "https://s4.anilist.co/file/anilistcdn/character/large/b260976-BJaZR85k4YFp.png",
+            "__typename": "CharacterImage"
+          },
+          "__typename": "Character"
+        },
+        "__typename": "CharacterEdge"
+      }
+    ],
+    "__typename": "CharacterConnection"
+  },
+  "studios": {
+    "edges": [
+      {
+        "isMain": true,
+        "node": {
+          "id": 6222,
+          "name": "CloverWorks",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 17,
+          "name": "Aniplex",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 58,
+          "name": "Square Enix",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 166,
+          "name": "Movic",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 6259,
+          "name": "TOKYO MX",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 6616,
+          "name": "BS11",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      },
+      {
+        "isMain": false,
+        "node": {
+          "id": 719,
+          "name": "Studio Mausu",
+          "__typename": "Studio"
+        },
+        "__typename": "StudioEdge"
+      }
+    ],
+    "__typename": "StudioConnection"
+  },
+  "externalLinks": [
+    {
+      "id": 39407,
+      "site": "Official Site",
+      "url": "https://bisquedoll-anime.com/",
+      "type": "INFO",
+      "language": "Japanese",
+      "color": null,
+      "icon": null,
+      "__typename": "MediaExternalLink"
+    },
+    {
+      "id": 39408,
+      "site": "Twitter",
+      "url": "https://twitter.com/kisekoi_anime",
+      "type": "SOCIAL",
+      "language": "Japanese",
+      "color": "#1DA1F2",
+      "icon": "https://s4.anilist.co/file/anilistcdn/link/icon/17-WaCuJNdk2K07.png",
+      "__typename": "MediaExternalLink"
+    },
+    {
+      "id": 42065,
+      "site": "Funimation",
+      "url": "https://www.funimation.com/shows/my-dress-up-darling/",
+      "type": "STREAMING",
+      "language": null,
+      "color": "#5B0BB5",
+      "icon": "https://s4.anilist.co/file/anilistcdn/link/icon/8-I96T2wQCpURN.png",
+      "__typename": "MediaExternalLink"
+    },
+    {
+      "id": 42376,
+      "site": "Crunchyroll",
+      "url": "https://crunchyroll.com/series/GQWH0M9N8",
+      "type": "STREAMING",
+      "language": null,
+      "color": "#F88B24",
+      "icon": "https://s4.anilist.co/file/anilistcdn/link/icon/5-AWN2pVlluCOO.png",
+      "__typename": "MediaExternalLink"
+    },
+    {
+      "id": 42381,
+      "site": "VRV",
+      "url": "https://vrv.co/series/GQWH0M9N8/My-Dress-Up-Darling",
+      "type": "STREAMING",
+      "language": null,
+      "color": "#F8DB09",
+      "icon": "https://s4.anilist.co/file/anilistcdn/link/icon/24-xJWczRhvO5lt.png",
+      "__typename": "MediaExternalLink"
+    },
+    {
+      "id": 43662,
+      "site": "Bilibili TV",
+      "url": "https://www.bilibili.tv/en/media/1035102",
+      "type": "STREAMING",
+      "language": null,
+      "color": "#00A1D6",
+      "icon": "https://s4.anilist.co/file/anilistcdn/link/icon/119-NCwGvCjFADGQ.png",
+      "__typename": "MediaExternalLink"
+    }
+  ],
+  "trailer": {
+    "id": "tFKDKd8z-NU",
+    "site": "youtube"
+  }
+}

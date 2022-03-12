@@ -23,8 +23,8 @@ const Navbar = () => (
         color: 'white',
       }}
       >
-        <Link to="/">Anime List</Link>
-        <Link to="/discover/all">Discover</Link>
+        <Link to="/">Anime</Link>
+        <Link to="/discover/manga">Manga</Link>
         <Link to="/favorites">Favorites</Link>
       </Box>
     </Box>
