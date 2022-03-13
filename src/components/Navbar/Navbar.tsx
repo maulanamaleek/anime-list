@@ -51,7 +51,7 @@ const Navbar = () => {
                 }}
                 onClick={() => setIsOpen(true)}
               >
-                <MenuIcon sx={{ color: '#76C893' }} />
+                <MenuIcon sx={{ color: 'white' }} />
               </Button>
 
               <SwipeableDrawer
@@ -78,10 +78,10 @@ const Navbar = () => {
                   >
                     <CloseIcon />
                   </Box>
-                  <Link to="/">Home</Link>
-                  <Link to="/discover/anime">Anime</Link>
-                  <Link to="/discover/manga">Manga</Link>
-                  <Link to="/favorites">Favorites</Link>
+                  <Link onClick={() => setIsOpen(false)} to="/">Home</Link>
+                  <Link onClick={() => setIsOpen(false)} to="/discover/anime">Anime</Link>
+                  <Link onClick={() => setIsOpen(false)} to="/discover/manga">Manga</Link>
+                  <Link onClick={() => setIsOpen(false)} to="/favorites">Favorites</Link>
                 </Box>
               </SwipeableDrawer>
             </>

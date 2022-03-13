@@ -18,7 +18,7 @@ const BannerSection: React.FC<BannerSectionProps> = ({
   const isMobile = useMediaQuery('(max-width:600px)');
   return (
     <Box>
-      {detail ? (
+      {detail?.bannerImage ? (
         <img
           style={{
             zIndex: -1,
@@ -120,7 +120,7 @@ const BannerSection: React.FC<BannerSectionProps> = ({
                 <p>
                   <b>Average Score: </b>
                   {detail?.averageScore}
-                  %
+                  {detail?.averageScore ? '%' : '-'}
                 </p>
                 <p>
                   <b>Start at:</b>

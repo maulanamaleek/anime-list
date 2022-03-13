@@ -3,11 +3,13 @@ import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
 const CardSkeleton = () => (
-  <Stack margin="auto" spacing={1}>
+  <Stack className="skeleton-card" margin="auto" spacing={1}>
     <Skeleton
       variant="rectangular"
-      width={185}
-      height={200}
+      style={{
+        width: '100%',
+        height: '200px',
+      }}
       sx={{
         borderRadius: 1,
       }}

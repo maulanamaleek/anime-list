@@ -34,12 +34,12 @@ const Discover: React.FC<DiscoverProps> = ({ type }) => {
     <Layout>
       <Box>
         {isTopCategory ? (
-          <h1 style={{ textTransform: 'capitalize', marginBottom: '30px' }}>
+          <h1 style={{ textTransform: 'capitalize', marginBottom: '10px' }}>
             {title}
             &nbsp;
             {type.toLowerCase()}
           </h1>
-        ) : <h1 style={{ textTransform: 'capitalize', marginBottom: '30px' }}>{type.toLowerCase()}</h1>}
+        ) : <h1 style={{ textTransform: 'capitalize', marginBottom: '10px' }}>{type.toLowerCase()}</h1>}
       </Box>
       <SearchForm />
       <FilteredList

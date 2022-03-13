@@ -70,6 +70,7 @@ const AnimeDetail = () => {
                 title={detail?.title?.userPreferred}
                 src={`https://www.youtube.com/embed/${detail?.trailer?.id}`}
                 width={isMobile ? '250px' : '500px'}
+                height={isMobile ? '200px' : '300px'}
                 style={{
                   margin: isMobile ? 'auto' : 'initial',
                   display: 'block',

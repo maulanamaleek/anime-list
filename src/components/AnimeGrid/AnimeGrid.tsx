@@ -19,7 +19,7 @@ const AnimeGrid: React.FC<AnimeGridProps> = ({ animeList }) => (
         return <CardSkeleton />;
       }
       return (
-        <Link key={anime?.id} to={`/${anime?.format?.toLowerCase()}/${anime?.id}/${formatTitleSlug(anime?.title?.userPreferred)}`}>
+        <Link key={anime?.id} to={`/${anime?.type?.toLowerCase()}/${anime?.id}/${formatTitleSlug(anime?.title?.userPreferred)}`}>
           <AnimeCard
             imageUrl={anime?.coverImage?.large}
             title={anime?.title?.userPreferred}

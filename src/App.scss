@@ -26,10 +26,14 @@ button, a {
   justify-content: space-around;
 }
 
+.skeleton-card {
+  width: 100%;
+}
+
 // Media Queries
 @media screen and (max-width: 1040px) {
   .grid-card-fit {
-    grid-template-columns: repeat(auto-fill,minmax(125px,1fr) !important);
+    grid-template-columns: repeat(auto-fill,minmax(125px,1fr));
     gap: 25px 14px;
   }
 };
@@ -42,11 +46,14 @@ button, a {
 
 @media screen and (max-width: 420px) {
   .grid-card-fit {
-    grid-template-columns: repeat(auto-fill,140px) !important;
+    grid-template-columns: repeat(auto-fill,140px);
     gap: 25px 14px;
   }
   .anime-card {
     width: 140px !important;
   }
 
+  .skeleton-card {
+    width: 140px !important;
+  }
 }

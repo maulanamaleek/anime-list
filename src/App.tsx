@@ -23,6 +23,8 @@ const App = () => (
         <Route path="/discover/manga/:category" element={<Discover type="MANGA" />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/" element={<AnimeList />} />
+
+        <Route path="*" element={<Fallback />} />
       </Routes>
     </Router>
   </Sentry.ErrorBoundary>

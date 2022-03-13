@@ -8,7 +8,7 @@ import Tag from '../Tag/Tag';
 
 const Card = styled.div`
   display: block;
-  width: 185px;
+  width: 100%;
   margin: auto;
   border-radius: 5px;
   position: relative;

@@ -21,7 +21,7 @@ const Layout = ({ children }: Props) => {
       <Box sx={{
         flexGrow: 1,
         padding: isMobile ? '10px' : '50px',
-        paddingTop: isMobile ? '30px' : '150px',
+        paddingTop: isMobile ? '70px' : '150px',
       }}
       >
         {children}

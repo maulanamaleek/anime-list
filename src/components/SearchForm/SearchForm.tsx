@@ -60,12 +60,7 @@ const SearchForm = () => {
   );
 
   return (
-    <Box
-      sx={{
-        mt: isMobile ? 8 : 0,
-      }}
-    >
-
+    <Box>
       {/* MOBILE SEARCH FORM */}
       {isMobile ? (
         <>
@@ -106,7 +101,7 @@ const SearchForm = () => {
       ) : (
         <Box sx={{
           display: 'grid',
-          columnGap: 15,
+          columnGap: 3,
           gridTemplateColumns: 'repeat(4, 1fr)',
         }}
         >

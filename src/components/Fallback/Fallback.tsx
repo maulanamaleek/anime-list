@@ -15,8 +15,8 @@ const Fallback = () => (
   }}
   >
     <img src={Logo} alt="anime" />
-    <h3>Sorry, There is an Error!</h3>
-    <Link to="/">Back to Homepage</Link>
+    <h3>Sorry, No match content here!</h3>
+    <Link style={{ color: '#ff9e00' }} to="/">Back to Homepage</Link>
   </div>
 );
 
