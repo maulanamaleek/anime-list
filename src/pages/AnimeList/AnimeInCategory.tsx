@@ -1,150 +1,69 @@
 import { Box } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import AnimeCard from '../../components/AnimeCard/AnimeCard';
-import useSkeleton from '../../components/Skeletons/useSkeleton';
 import { Anime } from '../../models/anime';
-import { formatTitleSlug } from '../../utils/string-helpers';
+import CategoryLayout from './CategoryLayout';
 
 interface AnimeInCategoryProps {
-  trending: any;
-  topList: any;
-  popular: any;
-  upcoming: any;
-  seasonPopular: any;
+  trending: Array<Anime>;
+  topList: Array<Anime>;
+  popular: Array<Anime>;
+  manhwa: Array<Anime>;
+  trendingManga: Array<Anime>;
+  topManga: Array<Anime>;
 }
 
 const AnimeInCategory: React.FC<AnimeInCategoryProps> = ({
-  trending, topList, popular, upcoming, seasonPopular,
-}) => {
-  const { loadSkeletonCard } = useSkeleton();
-  return (
-    <div>
-      <Box sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        mt: '30px',
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Trending Now</h3>
+  trending, topList, popular, manhwa, trendingManga, topManga,
+}) => (
+  <Box>
+    <CategoryLayout
+      title="Trending Anime"
+      type="ANIME"
+      data={trending}
+      topRank={false}
+      category="trending"
+    />
 
-        <Link style={{ color: 'darkblue' }} to="/discover/anime/trending">View All</Link>
-      </Box>
-      <div style={{
-        display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '25px 20px',
-      }}
-      >
-        {trending ? trending?.map((anime: any) => (
-          <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
-            <AnimeCard
-              title={anime.title.userPreferred}
-              imageUrl={anime.coverImage.large}
-              genres={anime.genres}
-            />
-          </Link>
-        ))
-          : loadSkeletonCard(5)}
-      </div>
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Popular This Season</h3>
+    <CategoryLayout
+      title="Trending Manga"
+      type="MANGA"
+      data={trendingManga}
+      topRank={false}
+      category="trending"
+    />
 
-        <Link style={{ color: 'darkblue' }} to="/discover/123">View All</Link>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {seasonPopular ? seasonPopular?.map((anime: Anime) => (
-          <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
-            <AnimeCard
-              title={anime.title.userPreferred}
-              imageUrl={anime.coverImage.large}
-              genres={anime.genres}
-            />
-          </Link>
-        ))
-          : loadSkeletonCard(5)}
-      </div>
+    <CategoryLayout
+      title="All Time Popular"
+      type="ANIME"
+      data={popular}
+      topRank={false}
+      category="popular"
+    />
 
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Upcoming Next Season</h3>
+    <CategoryLayout
+      title="Popular Manhwa"
+      type="MANGA"
+      data={manhwa}
+      topRank={false}
+      category="manhwa"
+    />
 
-        <Link style={{ color: 'darkblue' }} to="/discover/123">View All</Link>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {upcoming ? upcoming?.map((anime: Anime) => (
-          <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
-            <AnimeCard
-              title={anime.title.userPreferred}
-              imageUrl={anime.coverImage.large}
-              genres={anime.genres}
-            />
-          </Link>
-        ))
-          : loadSkeletonCard(5)}
-      </div>
+    <CategoryLayout
+      title="Top 100 Anime"
+      type="ANIME"
+      data={topList}
+      topRank
+      category="top-100"
+    />
 
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>All Time Popular</h3>
-
-        <Link style={{ color: 'darkblue' }} to="/discover/123">View All</Link>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {popular ? popular?.map((anime: Anime) => (
-          <Link key={anime.id} to={`/anime/${anime.id}/${formatTitleSlug(anime.title.userPreferred)}`}>
-            <AnimeCard
-              title={anime.title.userPreferred}
-              imageUrl={anime.coverImage.large}
-              genres={anime.genres}
-            />
-          </Link>
-        ))
-          : loadSkeletonCard(5)}
-      </div>
-      <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 50,
-      }}
-      >
-        <h3 style={{ marginBottom: 15 }}>Top 100 Anime</h3>
-
-        <Link style={{ color: 'darkblue' }} to="/discover/anime/top-100">View All</Link>
-      </div>
-      <div style={{
-        display: 'grid', justifyContent: 'space-between', gridTemplateColumns: 'repeat(auto-fill,minmax(185px,1fr))', gridGap: '25px 20px',
-      }}
-      >
-        {topList ? topList?.map((anime: Anime, index: number) => (
-          <Link key={anime.id} to={`/anime/${anime.id}/${anime.title.userPreferred}`}>
-            <AnimeCard
-              title={anime.title.userPreferred}
-              imageUrl={anime.coverImage.large}
-              genres={anime.genres}
-              rank={index}
-              topRank
-              color={anime.coverImage.color}
-            />
-          </Link>
-        ))
-          : loadSkeletonCard(5)}
-      </div>
-    </div>
-  );
-};
+    <CategoryLayout
+      title="Top 100 Manga"
+      type="MANGA"
+      data={topManga}
+      topRank
+      category="top-100"
+    />
+  </Box>
+);
 
 export default AnimeInCategory;

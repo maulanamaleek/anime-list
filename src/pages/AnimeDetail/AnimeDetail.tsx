@@ -1,22 +1,20 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable no-unused-vars */
-import Box from '@mui/material/Box';
 import React, { useEffect, useState } from 'react';
+import Box from '@mui/material/Box';
 import { useQuery } from '@apollo/react-hooks';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useParams } from 'react-router-dom';
-import { Skeleton } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 import Layout from '../../components/Layout/Layout';
 import { ANIME_DETAIL } from '../../utils/gql-helpers';
-import Tag from '../../components/Tag/Tag';
 import {
   getLocalFavorites, isFavorite, removeFavorite, setLocalFavorites,
 } from '../../utils/local-storage';
-import ArticleSkeleton from '../../components/Skeletons/ArticleSkeleton';
 import useSkeleton from '../../components/Skeletons/useSkeleton';
 import { Anime } from '../../models/anime';
+import BannerSection from './BannerSection';
 
 const AnimeDetail = () => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+  const [detail, setDetail] = useState<Anime>({} as Anime);
   const [isFavoriteItem, setIsFavoriteItem] = useState(false);
   const { loadSkeletonCard } = useSkeleton();
   const { id } = useParams();
@@ -26,7 +24,6 @@ const AnimeDetail = () => {
       isAdult: false,
     },
   });
-  const [detail, setDetail] = useState<Anime>({} as Anime);
 
   useEffect(() => {
     window.scrollTo({ top: 0 });
@@ -34,7 +31,7 @@ const AnimeDetail = () => {
 
   useEffect(() => {
     setDetail(data?.Media);
-    setIsFavoriteItem(isFavorite(detail?.id!));
+    setIsFavoriteItem(isFavorite(data?.Media?.id));
   }, [data]);
 
   const addToFavorite = () => {
@@ -53,124 +50,49 @@ const AnimeDetail = () => {
 
   return (
     <Layout>
-      {detail ? (
-        <img
-          style={{
-            zIndex: -1,
-            height: 300,
-            width: '100%',
-            borderRadius: 5,
-            objectFit: 'cover',
-          }}
-          src={detail?.bannerImage}
-          alt={detail?.title?.userPreferred}
-        />
-      ) : (
-        <Skeleton
-          variant="rectangular"
-          height={300}
-          sx={{ zIndex: -1, borderRadius: 1 }}
-        />
-      )}
-
+      <BannerSection
+        detail={detail}
+        removeFavoriteItem={removeFavoriteItem}
+        addToFavorite={addToFavorite}
+        isFavoriteItem={isFavoriteItem}
+      />
       <div>
-        {detail ? (
-          <Box sx={{
-            display: 'flex',
-            columnGap: 5,
-            padding: '0 50px',
-            mt: 2,
-          }}
-          >
-            <div style={{
-              transform: 'translate(0px, -100px)',
+        {detail?.trailer?.site === 'youtube' && (
+          <Box
+            sx={{
+              mt: 2,
+              padding: isMobile ? '0 20px' : '0px',
             }}
-            >
-              <img
+          >
+            <h1 style={{ marginBottom: '15px', textAlign: isMobile ? 'center' : 'left' }}> Trailer</h1>
+            {detail?.trailer?.site === 'youtube' ? (
+              <iframe
+                title={detail?.title?.userPreferred}
+                src={`https://www.youtube.com/embed/${detail?.trailer?.id}`}
+                width={isMobile ? '250px' : '500px'}
+                height={isMobile ? '200px' : '300px'}
                 style={{
-                  height: 300,
-                  width: 200,
-                  borderRadius: 5,
+                  margin: isMobile ? 'auto' : 'initial',
+                  display: 'block',
                 }}
-                src={detail?.coverImage?.large}
-                alt={detail?.title?.userPreferred}
               />
-              <br />
-              {isFavorite(detail?.id!) ? (
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    background: 'darkBlue',
-                    color: 'white',
-                    outline: 0,
-                    border: 0,
-                    borderRadius: 1,
-                    padding: '5px 12px;',
-                    margin: 'auto',
-                    mt: 2,
-                  }}
-                  component="button"
-                  onClick={() => removeFavoriteItem()}
-                >
-                  Remove Favorite
-                  <FavoriteIcon sx={{ ml: 1 }} />
-                </Box>
-              ) : (
-                <Box
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    background: 'darkBlue',
-                    color: 'white',
-                    outline: 0,
-                    border: 0,
-                    borderRadius: 1,
-                    padding: '5px 12px;',
-                    margin: 'auto',
-                    mt: 2,
-                  }}
-                  component="button"
-                  onClick={addToFavorite}
-                >
-                  Add to Favorite
-                  <FavoriteIcon sx={{ ml: 1 }} />
-                </Box>
-              )}
-
-              <Box
-                sx={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  columnGap: '5px',
-                  rowGap: '5px',
-                  mt: 1,
-                }}
-              >
-                {detail?.genres?.map((genre: string) => <Tag key={genre} content={genre} />)}
-              </Box>
-            </div>
-            <div>
-              <h1 style={{ marginBottom: 30 }}>{detail?.title?.userPreferred}</h1>
-              <div dangerouslySetInnerHTML={{ __html: String(detail?.description) }} />
-            </div>
+            ) : null}
           </Box>
-        ) : <ArticleSkeleton />}
-
-        <div>
-          <h1>Trailer</h1>
-          {detail?.trailer?.site === 'youtube' ? (
-            <iframe title={detail?.title?.userPreferred} src={`https://www.youtube.com/embed/${detail?.trailer?.id}`} />
-          ) : null}
-        </div>
-        <div>
-          <h1 style={{ marginTop: 30, marginBottom: 20 }}>Characters</h1>
+        )}
+        <Box
+          sx={{
+            mt: 2,
+            padding: isMobile ? '0 20px' : '0px',
+          }}
+        >
+          <h1 style={{ marginTop: 30, marginBottom: 20, textAlign: isMobile ? 'center' : 'left' }}>Characters</h1>
           {detail ? (
             <Box
               sx={{
                 display: 'flex',
                 flexWrap: 'wrap',
                 gap: '20px',
+                justifyContent: 'space-around',
               }}
             >
               {detail?.characterPreview?.edges?.map((char: any) => (
@@ -189,7 +111,7 @@ const AnimeDetail = () => {
               ))}
             </Box>
           ) : loadSkeletonCard(5)}
-        </div>
+        </Box>
       </div>
     </Layout>
   );

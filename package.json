@@ -10,6 +10,8 @@
     "@mui/icons-material": "^5.5.0",
     "@mui/material": "^5.5.0",
     "@mui/styles": "^5.5.0",
+    "@sentry/react": "^6.18.2",
+    "@sentry/tracing": "^6.18.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -23,8 +25,8 @@
     "apollo-link": "^1.2.14",
     "apollo-link-error": "^1.1.13",
     "apollo-link-http": "^1.5.17",
+    "dompurify": "^2.3.6",
     "graphql": "^15.8.0",
-    "loglevel": "^1.8.0",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -35,6 +37,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@types/dompurify": "^2.3.3",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.10.0",

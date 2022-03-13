@@ -8,7 +8,7 @@ import Tag from '../Tag/Tag';
 
 const Card = styled.div`
   display: block;
-  width: 185px;
+  width: 100%;
   margin: auto;
   border-radius: 5px;
   position: relative;
@@ -40,12 +40,12 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
   const { category } = useParams();
   const topRanking = isTopRank(getTitleFromSlug(category!), rank! + 1) || topRank;
   return (
-    <Card>
+    <Card className="anime-card">
       {topRanking && (
         <Box sx={{
           width: 30,
           height: 30,
-          background: color,
+          background: color || 'darkBlue',
           borderRadius: '50%',
           position: 'absolute',
           top: -10,
@@ -73,7 +73,7 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
           mt: 1,
         }}
       >
-        {genres.map((genre) => <Tag key={genre} content={genre} />)}
+        {genres.slice(0, 3).map((genre) => <Tag key={genre} content={genre} />)}
       </Box>
     </Card>
   );
