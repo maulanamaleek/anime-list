@@ -1,5 +1,6 @@
 import { Box, Skeleton, useMediaQuery } from '@mui/material';
 import React from 'react';
+import DOMPurify from 'dompurify';
 import Tag from '../../components/Tag/Tag';
 import ArticleSkeleton from '../../components/Skeletons/ArticleSkeleton';
 import { Anime } from '../../models/anime';
@@ -137,7 +138,12 @@ const BannerSection: React.FC<BannerSectionProps> = ({
             </div>
             <div>
               <h1 style={{ marginBottom: 30 }}>{detail?.title?.userPreferred}</h1>
-              <div dangerouslySetInnerHTML={{ __html: String(detail?.description) }} />
+              <div
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(String(detail?.description)),
+                }}
+              />
             </div>
           </Box>
         ) : <ArticleSkeleton />}
