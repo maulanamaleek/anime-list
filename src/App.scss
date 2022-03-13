@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+#navbar {
+  box-shadow: 0px 5px 10px rgba($color: #000000, $alpha: 0.05);
+  background-color: #76c893;
+}
+
+.mobile-menu a {
+  color: black;
+  font-weight: 600;
+  font-size: 18;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.grid-card-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,185px);
+  gap: 25px 20px;
+  justify-content: space-around;
+}
+
+.skeleton-card {
+  width: 100%;
+}
+
+// Media Queries
+@media screen and (max-width: 1040px) {
+  .grid-card-fit {
+    grid-template-columns: repeat(auto-fill,minmax(125px,1fr));
+    gap: 25px 14px;
+  }
+};
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .grid-card-fit {
+    grid-template-columns: repeat(auto-fill,140px);
+    gap: 25px 14px;
+  }
+  .anime-card {
+    width: 140px !important;
+  }
+
+  .skeleton-card {
+    width: 140px !important;
+  }
+}
