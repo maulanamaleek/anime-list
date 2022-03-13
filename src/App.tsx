@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AnimeList from './pages/AnimeList/AnimeList';
 import AnimeDetail from './pages/AnimeDetail/AnimeDetail';
@@ -15,6 +15,8 @@ const App = () => (
       <Route path="/discover/manga" element={<Discover type="MANGA" />} />
       <Route path="/discover/anime" element={<Discover type="ANIME" />} />
       <Route path="/discover/anime/:category" element={<Discover type="ANIME" />} />
+      <Route path="/discover/manga" element={<Discover type="MANGA" />} />
+      <Route path="/discover/manga/:category" element={<Discover type="MANGA" />} />
       <Route path="/favorites" element={<Favorites />} />
       <Route path="/" element={<AnimeList />} />
     </Routes>

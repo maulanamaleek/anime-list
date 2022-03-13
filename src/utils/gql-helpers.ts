@@ -1,19 +1,4 @@
 import { gql } from 'apollo-boost';
-import {
-  makeVar,
-} from '@apollo/client';
-import { Filter } from '../models/filter';
-
-// Reactive Variables
-export const filtersVar = makeVar<Filter>({
-  search: '',
-  year: '',
-  genre: '',
-  country: '',
-  page: 1,
-  sort: '',
-  type: 'ANIME',
-});
 
 export const GET_GENRES = gql`
 {
@@ -62,6 +47,7 @@ query ($page: Int = 1, $id: Int, $type: MediaType, $status: MediaStatus, $season
       isAdult
       averageScore
       popularity
+      format
       nextAiringEpisode {
         airingAt
         timeUntilAiring
@@ -231,29 +217,38 @@ query media($id: Int, $type: MediaType, $isAdult: Boolean) {
 `;
 
 export const HOME_SCREEN_ANIME = gql`
-query ($season: MediaSeason, $seasonYear: Int, $nextSeason: MediaSeason, $nextYear: Int) {
-  trending: Page(page: 1, perPage: 5) {
+query {
+  trending: Page(page: 1, perPage: 6) {
     media(sort: TRENDING_DESC, type: ANIME, isAdult: false) {
       ...media
     }
   }
-  season: Page(page: 1, perPage: 5) {
-    media(season: $season, seasonYear: $seasonYear, sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
+  trendingManga: Page(page: 1, perPage: 6) {
+    media(sort: TRENDING_DESC, type: MANGA, isAdult: false) {
       ...media
     }
   }
-  nextSeason: Page(page: 1, perPage: 5) {
-    media(season: $nextSeason, seasonYear: $nextYear, sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
-      ...media
-    }
-  }
-  popular: Page(page: 1, perPage: 5) {
+
+  popular: Page(page: 1, perPage: 6) {
     media(sort: POPULARITY_DESC, type: ANIME, isAdult: false) {
       ...media
     }
   }
-  top: Page(page: 1, perPage: 10) {
+
+  manhwa: Page(page: 1, perPage: 6) {
+    media(sort: POPULARITY_DESC, type: MANGA, countryOfOrigin: "KR", isAdult: false) {
+      ...media
+    }
+  }
+
+  top: Page(page: 1, perPage: 12) {
     media(sort: SCORE_DESC, type: ANIME, isAdult: false) {
+      ...media
+    }
+  }
+
+  topManga: Page(page: 1, perPage: 12) {
+    media(sort: SCORE_DESC, type: MANGA, isAdult: false) {
       ...media
     }
   }

@@ -9,9 +9,9 @@ const Tag: React.FC<TagProps> = ({ content }) => (
   <Box
     component="span"
     sx={{
-      padding: '2px 5px',
-      background: 'lightGreen',
-      fontSize: 8,
+      padding: '5px 10px',
+      background: '#ff8500',
+      fontSize: 10,
       borderRadius: 2,
     }}
   >

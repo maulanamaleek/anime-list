@@ -10,7 +10,7 @@ import Layout from '../../components/Layout/Layout';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import { getTitleFromSlug } from '../../utils/string-helpers';
 import { checkTopCategory } from '../../utils/filter-helpers';
-import { filtersVar } from '../../utils/gql-helpers';
+import { filtersVar } from '../../utils/store';
 
 interface DiscoverProps {
   type: 'ANIME' | 'MANGA';
@@ -25,17 +25,21 @@ const Discover: React.FC<DiscoverProps> = ({ type }) => {
   useEffect(() => {
     window.scrollTo({ top: 0 });
     filtersVar({ ...filters, type });
-    if (title?.toUpperCase() === 'TOP 100') filtersVar({ ...filters, sort: 'SCORE_DESC', type: 'ANIME' });
-  }, []);
+    if (title?.toUpperCase() === 'TOP 100') filtersVar({ ...filters, sort: 'SCORE_DESC', type });
+    if (title?.toUpperCase() === 'MANHWA') filtersVar({ ...filters, type, country: 'KR' });
+    if (title?.toUpperCase() === 'POPULAR') filtersVar({ ...filters, type, sort: 'POPULARITY_DESC' });
+  }, [type]);
 
   return (
     <Layout>
       <Box>
-        {isTopCategory && (
+        {isTopCategory ? (
           <h1 style={{ textTransform: 'capitalize', marginBottom: '30px' }}>
             {title}
+            &nbsp;
+            {type.toLowerCase()}
           </h1>
-        )}
+        ) : <h1 style={{ textTransform: 'capitalize', marginBottom: '30px' }}>{type.toLowerCase()}</h1>}
       </Box>
       <SearchForm />
       <FilteredList

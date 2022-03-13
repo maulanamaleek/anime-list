@@ -4,15 +4,7 @@ import CardSkeleton from './CardSkeleton';
 
 const useSkeleton = () => {
   const loadSkeletonCard = (amount: number) => (
-    <Box sx={{
-      display: 'grid',
-      gridTemplateColumns: 'repeat(5, 1fr)',
-      justifyContent: 'space-between',
-      rowGap: '30px',
-      columnGap: '30px',
-      mt: '30px',
-    }}
-    >
+    <Box className="grid-card-fit">
       {[...Array(amount).keys()].map((el) => <CardSkeleton key={el} />)}
     </Box>
   );

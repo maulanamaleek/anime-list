@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 export interface Anime {
-  id?: number;
+  id: number;
   title: Title;
   coverImage: CoverImage;
   bannerImage: string;
