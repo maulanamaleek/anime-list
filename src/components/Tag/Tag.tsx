@@ -10,7 +10,7 @@ const Tag: React.FC<TagProps> = ({ content }) => (
     component="span"
     sx={{
       padding: '5px 10px',
-      background: '#ff8500',
+      background: '#99d98c',
       fontSize: 10,
       borderRadius: 2,
     }}

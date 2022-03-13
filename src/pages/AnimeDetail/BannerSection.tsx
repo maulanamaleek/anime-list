@@ -1,6 +1,5 @@
 import { Box, Skeleton, useMediaQuery } from '@mui/material';
 import React from 'react';
-import FavoriteIcon from '@mui/icons-material/Favorite';
 import Tag from '../../components/Tag/Tag';
 import ArticleSkeleton from '../../components/Skeletons/ArticleSkeleton';
 import { Anime } from '../../models/anime';
@@ -87,7 +86,7 @@ const BannerSection: React.FC<BannerSectionProps> = ({
                   sx={{
                     display: 'flex',
                     alignItems: 'center',
-                    background: 'darkBlue',
+                    background: '#52b69a',
                     color: 'white',
                     outline: 0,
                     border: 0,
@@ -99,8 +98,7 @@ const BannerSection: React.FC<BannerSectionProps> = ({
                   component="button"
                   onClick={() => addToFavorite()}
                 >
-                  Add to Favorite
-                  <FavoriteIcon sx={{ ml: 1, fontSize: 14 }} />
+                  Add to Favorite +
                 </Box>
               )}
 

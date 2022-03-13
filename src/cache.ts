@@ -19,14 +19,6 @@ export const client: any = new ApolloClient({
     }),
   ]),
   cache,
-  resolvers: {
-    Mutation: {
-      updateNetworkStatus: (_, { isConnected }, { cache }) => {
-        cache.writeData({ data: { isConnected } });
-        return null;
-      },
-    },
-  },
 });
 
 cache.writeData({

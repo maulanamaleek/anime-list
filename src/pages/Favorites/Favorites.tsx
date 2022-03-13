@@ -1,10 +1,11 @@
 /* eslint-disable no-unused-vars */
 import Box from '@mui/material/Box';
 import React, { ChangeEvent, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Pagination, Stack } from '@mui/material';
 import Layout from '../../components/Layout/Layout';
 import {
-  countFavoritePage, getCurrentPageItem, getLocalFavorites, removeFavorite,
+  countFavoritePage, getCurrentPageItem, getLocalFavorites, removeFavorite, resetLocalFavorites,
 } from '../../utils/local-storage';
 import AnimeGrid from '../../components/AnimeGrid/AnimeGrid';
 
@@ -20,6 +21,11 @@ const Favorites = () => {
     window.scrollTo({ top: 0 });
     const newCurrentPage = getCurrentPageItem(p, totalPage, perPage);
     setCurrentItems(newCurrentPage);
+  };
+
+  const resetLocal = () => {
+    resetLocalFavorites();
+    setCurrentItems([]);
   };
 
   return (
@@ -44,6 +50,7 @@ const Favorites = () => {
                 color: 'red',
               }}
               type="button"
+              onClick={resetLocal}
             >
               Clear All
             </button>
@@ -56,7 +63,23 @@ const Favorites = () => {
             </Stack>
           )}
         </Box>
-      ) : <h1>You have no Favorite yet</h1>}
+      ) : (
+        <>
+          <h1 style={{ textAlign: 'center' }}>You have no Favorite yet</h1>
+          <Link
+            style={{
+              color: '#52b69a',
+              display: 'block',
+              textAlign: 'center',
+              fontSize: 20,
+              marginTop: '25px',
+            }}
+            to="/"
+          >
+            Homepage
+          </Link>
+        </>
+      )}
     </Layout>
   );
 };

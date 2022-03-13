@@ -127,7 +127,7 @@ const SearchForm = () => {
       >
         {!isFilterEmpty(filter) && (
           <>
-            <LocalOfferIcon sx={{ color: 'darkBlue', mr: 2 }} />
+            <LocalOfferIcon sx={{ color: '#99d98c', mr: 2 }} />
             <Box
               sx={{
                 display: 'flex',

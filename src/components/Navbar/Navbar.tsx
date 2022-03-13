@@ -11,24 +11,34 @@ const Navbar = () => {
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
-    <Box sx={{
-      position: 'fixed',
-      width: '100%',
-      top: 0,
-      left: 0,
-      alignItems: 'center',
-      background: '#240046',
-      color: 'white',
-      zIndex: 3,
-    }}
+    <Box
+      id="navbar"
+      sx={{
+        position: 'fixed',
+        width: '100%',
+        top: 0,
+        left: 0,
+        alignItems: 'center',
+        background: '#ffffff',
+        color: '#76C893',
+        zIndex: 3,
+      }}
     >
-      <Box sx={{ padding: '12px 10%', display: 'flex', justifyContent: 'space-between' }}>
-        <h1>AnimeList</h1>
+      <Box
+        sx={{
+          padding: isMobile ? '12px 10px' : '12px 10%',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
+        <Link to="/">
+          <h2>AnimeList</h2>
+        </Link>
         <Box sx={{
           display: 'flex',
           alignItems: 'center',
           columnGap: 2,
-          color: 'white',
+          color: '#76C893',
         }}
         >
           {isMobile ? (
@@ -36,10 +46,12 @@ const Navbar = () => {
               <Button
                 sx={{
                   background: 'transparent',
+                  padding: 0,
+                  width: '40px',
                 }}
                 onClick={() => setIsOpen(true)}
               >
-                <MenuIcon sx={{ color: 'white' }} />
+                <MenuIcon sx={{ color: '#76C893' }} />
               </Button>
 
               <SwipeableDrawer
@@ -60,6 +72,7 @@ const Navbar = () => {
                     sx={{
                       background: 'transparent',
                       float: 'right',
+                      color: '#76C893',
                     }}
                     onClick={() => setIsOpen(false)}
                   >
